@@ -15,11 +15,13 @@ public class FluxInterval1 {
 //                .interval(Duration.ofSeconds(1), Duration.ofSeconds(3))
 //                .flatMap(e -> Subscriber::onComplete)
                 .doOnEach(System.out::println)
+                .onErrorReturn(" Divided by zero :( ")
                 .subscribe((e) -> System.out.println(e));
 
         Flux.interval(Duration.ofSeconds(1), Schedulers.newSingle("single"))
                 .doOnNext(System.out::println)
-                .subscribe();
+                .subscribe(value -> System.out.println("RECEIVED " + value),
+                        error -> System.err.println("CAUGHT " + error));
 
     }
 }
