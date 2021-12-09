@@ -10,6 +10,8 @@ import java.time.Duration;
 public class FluxInterval1 {
     public static void main(String[] args) {
 
+        Schedulers.enableMetrics();
+
         Flux.just("1", "2", "4")
                 .delayElements(Duration.ofSeconds(3))
 //                .interval(Duration.ofSeconds(1), Duration.ofSeconds(3))
