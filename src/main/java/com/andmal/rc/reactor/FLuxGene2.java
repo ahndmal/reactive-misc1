@@ -7,6 +7,8 @@ import java.util.concurrent.atomic.AtomicLong;
 public class FLuxGene2 {
     public static void main(String[] args) {
 
+        // Synchronous Flux.generate
+
         Flux<String> flux = Flux.generate(
                 AtomicLong::new,
                 (state, sink) -> {
@@ -25,5 +27,19 @@ public class FLuxGene2 {
                     return state + 1;
                 });
         flux2.subscribe();
+
+        Flux<String> fluxConsumer = Flux.generate(
+                AtomicLong::new,
+                (state, sink) -> {
+                    long i = state.getAndIncrement();
+                    sink.next("3 x " + i + " = " + 3*i);
+                    if (i == 10) sink.complete();
+                    return state;
+                }, (state) -> System.out.println("state: " + state));
+
+
+
+
+
     }
 }

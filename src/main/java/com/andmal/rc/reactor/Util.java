@@ -24,4 +24,12 @@ public class Util {
         };
 
     }
+
+    public static String alphabet(int letterNumber) {
+        if (letterNumber < 1 || letterNumber > 26) {
+            return null;
+        }
+        int letterIndexAscii = 'A' + letterNumber - 1;
+        return "" + (char) letterIndexAscii;
+    }
 }
