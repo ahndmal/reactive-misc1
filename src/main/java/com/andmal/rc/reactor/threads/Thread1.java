@@ -1,4 +1,4 @@
-package com.andmal.rc.reactor.threds;
+package com.andmal.rc.reactor.threads;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
