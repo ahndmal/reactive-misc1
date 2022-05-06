@@ -2,7 +2,7 @@ package com.andmal.rc.reactor;
 
 import reactor.core.publisher.Mono;
 
-public class Context {
+public class MyContext {
     public static void main(String[] args) {
 
         String key = "message";
