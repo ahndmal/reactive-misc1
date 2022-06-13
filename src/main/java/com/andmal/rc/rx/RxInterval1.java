@@ -17,6 +17,8 @@ public class RxInterval1 {
 
        Flowable.range(1,7)
                .doOnNext(System.out::println)
+               .map(i -> i * 1000)
+               .delay(3, TimeUnit.SECONDS)
                .subscribe();
 
         Observable.timer(3, TimeUnit.SECONDS)

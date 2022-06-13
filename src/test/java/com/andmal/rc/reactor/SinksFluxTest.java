@@ -41,4 +41,9 @@ class SinksFluxTest {
         Publisher publisher = (e) -> System.out.println();
         return publisher;
     }
+
+//    @Test
+//    void sink3() {
+//        Flux<Integer> range4 = Flux.<Integer>create(sink -> sink.next(1).next(2).next(3)).doOnNext(add).doOnEach(signals::add).doOnSubscribe()
+//    }
 }
