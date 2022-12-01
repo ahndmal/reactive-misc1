@@ -5,15 +5,12 @@ import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
-import lombok.SneakyThrows;
-
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class RxInterval1 {
 
-    @SneakyThrows
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
        Flowable.range(1,7)
                .doOnNext(System.out::println)

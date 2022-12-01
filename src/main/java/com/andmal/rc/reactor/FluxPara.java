@@ -1,11 +1,9 @@
 package com.andmal.rc.reactor;
 
-import lombok.SneakyThrows;
 import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
 
 public class FluxPara {
-    @SneakyThrows
     public static void main(String[] args) {
 
         Flux.range(1, 10)
@@ -15,8 +13,11 @@ public class FluxPara {
                 .sequential()
                 .subscribe(v -> printThreadName("sub " + v));
 
-
-        Thread.sleep(5000);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
     }
     private static void printThreadName(String msg) {

@@ -10,7 +10,6 @@ import io.vertx.core.http.HttpServer;
 
 public class VertxExe {
     public static void main(String[] args) {
-
         Vertx vertx = Vertx.vertx();
         Vertx vertx2 = Vertx.vertx(new VertxOptions().setWorkerPoolSize(40));
         HttpServer server = vertx.createHttpServer();
